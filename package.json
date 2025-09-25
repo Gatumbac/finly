@@ -1,0 +1,45 @@
+{
+  "name": "finly",
+  "version": "1.0.0",
+  "description": "The invoicing software for small bussiness and freelancer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "concurrently \"nodemon index.js\" \"npx tailwindcss -i ./src/css/tailwind.css -o ./public/css/styles.css --watch\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gatumbac/finly.git"
+  },
+  "keywords": [
+    "Node.js",
+    "Full-Stack",
+    "JavaScript",
+    "HTML",
+    "CSS",
+    "Tailwind"
+  ],
+  "author": "gatumbac",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gatumbac/finly/issues"
+  },
+  "homepage": "https://github.com/Gatumbac/finly#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.2.1",
+    "daisyui": "^5.1.21",
+    "nodemon": "^3.1.10",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^4.1.13"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.13",
+    "@tailwindcss/postcss": "^4.1.13",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "morgan": "^1.10.1"
+  }
+}
