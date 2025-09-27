@@ -1,6 +1,9 @@
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 const morgan = require('morgan');
+const userRouter = require('./routes/user.route');
+const error404 = require('./controllers/error.controller');
 
 const app = express();
 
@@ -13,33 +16,17 @@ require('./lib/dbConnect');
 
 app.use(morgan('dev'));
 
-app.get('/', (req, res) => {
-    res.render('index', {
-        title: 'Index',
-        message: 'Hello from Node.js!'
+app.use(
+    session({
+        secret: process.env.AUTH_SECRET,
+        saveUninitialized: true,
+        resave: false
     })
-});
+)
 
-app.get('/contact', (req, res) => {
-    res.render('index', {
-        title: 'Contact',
-        message: 'The Contact Page!'
-    })
-});
+app.use('/', userRouter);
 
-app.get('/about', (req, res) => {
-    res.render('index', {
-        title: 'About',
-        message: 'The About Page!'
-    })
-});
-
-app.use((req, res) => {
-    res.status(404).render('index', {
-        title: 'Not Found',
-        message: 'Page Not Found!'
-    })
-});
+app.use(error404);
 
 const PORT = 3000;
 
