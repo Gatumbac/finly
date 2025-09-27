@@ -8,6 +8,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
+require('dotenv').config();
+require('./lib/dbConnect');
+
 app.use(morgan('dev'));
 
 app.get('/', (req, res) => {
